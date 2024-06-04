@@ -66,6 +66,15 @@
           </div>
         </div>
       </div>
+
+      <div id="donationPopup" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Support Our Cause</h2>
+          <p>Your donation can make a real difference in the lives of those we serve. Every contribution, no matter how small, brings us closer to achieving our mission.</p>
+          <a href="donate.html" class="donate-button">Donate Now</a>
+        </div>
+      </div>
     </div>
 
     <section class="ftco-counter ftco-intro" id="section-counter">
@@ -85,7 +94,7 @@
               <div class="text">
               	<h3 class="mb-4">Donate Money</h3>
               	<p>Your donation enables us to expand our reach, improve our services, and make a meaningful difference in the world</p>
-              	<p><a href="donate.html" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
+              	<p><a  class="btn btn-white px-3 py-2 mt-2" id="donateButton">Donate Now</a></p>
               </div>
             </div>
           </div>
@@ -98,9 +107,20 @@
               </div>
             </div>
           </div>
+
+          <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close">&times;</span>
+                <h2>Your Contribution Matters!</h2>
+                <p>Every little bit helps us make a big difference. Thank you for considering a donation to our cause!</p>
+                <button id="confirmDonate" class="btn btn-success">Proceed to Donate</button>
+            </div>
+        </div>
     		</div>
     	</div>
     </section>
+
+    
 
     <section class="ftco-section">
     	<div class="container">
@@ -621,6 +641,47 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+    <script>
+      document.getElementById('donateButton').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'flex';
+});
+
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'none';
+});
+
+document.getElementById('confirmDonate').addEventListener('click', function() {
+    window.location.href = 'donate.html'; // Replace with your actual donation page URL
+});
+
+    </script>
+
+    <script>
+      // Get the modal
+var modal = document.getElementById("donationPopup");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+window.onload = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
   </body>
 </html>
